@@ -2,9 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './Home'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const [count1, setCount1] = useState(0);
+
+
 
   return (
     <>
@@ -24,6 +29,17 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+        <Home />
+      </div>
+      <div className="card">
+        <button onClick={() => setCount1((count1) => count1 + 1)}>
+          New count is {count1}!
+        </button>
+        <button onClick={() => setCount1((count1) => {
+          return count1.reset();
+        })}>
+          Reset Value:
+        </button>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
@@ -33,3 +49,8 @@ function App() {
 }
 
 export default App
+
+
+
+
+
