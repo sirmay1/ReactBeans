@@ -1,56 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Home from './Home'
+import './App.css';
+import { useState } from 'react';
+
 
 function App() {
-  const [count, setCount] = useState(0);
+return(
+  <div>
+  <NewTools
+    name="William The Dev ."
+  />
+  <Tools
+  name="William Castro"
+  title="Junior Developer"
+  tech="React, JavaScript, HTML5, CSS3, Tailwind, node.js, Django, Python, ASP.NET, C#"
+  email="william.castro2000@outlook.com"
+  address="101 Maple Street Road"
+  age={49}
+  hobbies={ ['programming', 'Web Development'] }
+  />
+  <Tools
+  name="Alia Castro"
+  title="Pain In The Ass!"
+  tech="Master Digital Drawer using Figma & Pro-Create!"
+  email="AliaBona@gmail.com"
+  address="101 Fart Street"
+  age={19}
+  hobbies={ ['digital art', 'Artist']}
+   />
+   <Tools
+    name="Carolyn Castro"
+    title="Boss"
+    tech="Boss Worker"
+    email="msbossaholic@yahoo.com"
+    address="1105 Maples New York"
+    age={45}
+    hobbies={ ['healthy cooking', 'Healthy Cooking']}
+   />
+  </div>
+);
+}
+export default App;
 
-  const [count1, setCount1] = useState(0);
 
-
-
+export const Tools = (props) => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-        <Home />
-      </div>
-      <div className="card">
-        <button onClick={() => setCount1((count1) => count1 + 1)}>
-          New count is {count1}!
-        </button>
-        <button onClick={() => setCount1((count1) => {
-          return count1.reset();
-        })}>
-          Reset Value:
-        </button>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="ul-container">
+      <ul>
+        <li>{ props.name }</li>
+        <li>{ props.title }</li>
+        <li>{ props.tech }</li>
+        <li>{ props.email }</li>
+        <li>{ props.address }</li>
+        <li>{ props.age }</li>
+        <li>{ props.hobbies }</li>
+      </ul>
+    </div>
+  );
 }
 
-export default App
-
-
-
+export const NewTools = (props) => {
+  let name = props.name;
+  const [count, setCount] = useState(0);
+  return (
+    <div className="number-container">
+    <h1 className="title">{ props.name }</h1>
+    <button className="btn" onClick={() => setCount(count => count + 1)}> + </button>
+      <span className="count">{ count }</span>
+    <button className="btn" onClick={() => setCount(count => count - 1)}> - </button>
+    </div>
+  )
+}
 
 
