@@ -1,73 +1,66 @@
 import './App.css';
-import { useState } from 'react';
 
+
+import './App.css';
+//import CoreConcept from './data.js';
+import { CORE_CONCEPTS, CoreConcept } from './data.js';
+//import { CORE_CONCEPTS } from './data.js';
+import reactImg from './assets/react-core-concepts.png';
+
+
+const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+
+function genRandInt(max) {
+  return Math.floor(Math.random() * (max + 1));
+}
+
+function Header() {
+  const description = reactDescriptions[genRandInt(2)];
+  return (
+    <header>
+      <img src={reactImg} alt="Stylized atom" />
+      <h1>React Essentials</h1>
+      <p>
+        {description} React concepts you will need for almost any app you are going to build!
+      </p>
+    </header>
+  );
+}
+
+function CoreConcept({image, title, description}) {
+  return(
+    <li>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </li>
+  );
+}
 
 function App() {
-return(
-  <div>
-  <NewTools
-    name="William The Dev ."
-  />
-  <Tools
-  name="William Castro"
-  title="Junior Developer"
-  tech="React, JavaScript, HTML5, CSS3, Tailwind, node.js, Django, Python, ASP.NET, C#"
-  email="william.castro2000@outlook.com"
-  address="101 Maple Street Road"
-  age={49}
-  hobbies={ ['programming', 'Web Development'] }
-  />
-  <Tools
-  name="Alia Castro"
-  title="Pain In The Ass!"
-  tech="Master Digital Drawer using Figma & Pro-Create!"
-  email="AliaBona@gmail.com"
-  address="101 Fart Street"
-  age={19}
-  hobbies={ ['digital art', 'Artist']}
-   />
-   <Tools
-    name="Carolyn Castro"
-    title="Boss"
-    tech="Boss Worker"
-    email="msbossaholic@yahoo.com"
-    address="1105 Maples New York"
-    age={45}
-    hobbies={ ['healthy cooking', 'Healthy Cooking']}
-   />
-  </div>
-);
-}
-export default App;
+  return(
+    <div>
+    <Header />
+    <main>
+    <section id="core-concepts">
 
-
-export const Tools = (props) => {
-  return (
-    <div className="ul-container">
-      <ul>
-        <li>{ props.name }</li>
-        <li>{ props.title }</li>
-        <li>{ props.tech }</li>
-        <li>{ props.email }</li>
-        <li>{ props.address }</li>
-        <li>{ props.age }</li>
-        <li>{ props.hobbies }</li>
-      </ul>
+    </section>
+    <h1>Time To Get Started With, React!</h1>
+    </main>
+    <CoreConcept {...CORE_CONCEPTS}/>
+    <CoreConcept
+    title={CORE_CONCEPTS[1].title}
+    description={CORE_CONCEPTS[1].description}
+    image={CORE_CONCEPTS[1].image}
+    />
     </div>
   );
 }
 
-export const NewTools = (props) => {
-  let name = props.name;
-  const [count, setCount] = useState(0);
-  return (
-    <div className="number-container">
-    <h1 className="title">{ props.name }</h1>
-    <button className="btn" onClick={() => setCount(count => count + 1)}> + </button>
-      <span className="count">{ count }</span>
-    <button className="btn" onClick={() => setCount(count => count - 1)}> - </button>
-    </div>
-  )
-}
+export default App;
+
+
+
+
 
 
