@@ -1,4 +1,31 @@
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  const basket = ["Limes", "Lemons", "Apples", "Cherries", "Pineapples", "Mangos", "Oranges", "Peaches", "Plums"];
+
+  const CountFruits = (max) => {
+    return Math.ceil(Math.random() * (max + 1));
+  }
+
+  return (
+    <>
+      <div className="container">
+        <h1>Counter Header!</h1>
+        <div>I count <span className="number">{count}</span> fruit called <span className="fruit">{basket[CountFruits(7)]}</span> and placing it in my basket</div>
+       <button onClick={() => setCount(count + 1)}>+</button>
+      </div>
+    </>
+  );
+};
+export default App;
+
+
+
+/*import './App.css';
 
 
 import './App.css';
@@ -57,7 +84,10 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
+
+
+
 
 /*import reactImg from './assets/react-core-concepts.png';
 import { CORE_CONCEPTS } from './data.js';
